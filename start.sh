@@ -1,0 +1,86 @@
+#!/bin/bash
+
+echo "═══════════════════════════════════════════════════════"
+echo "     🏢 Mido System - HR & Payroll Management"
+echo "              ECGS Group Companies"
+echo "═══════════════════════════════════════════════════════"
+echo ""
+echo "📊 System Information:"
+echo "   • Database: mido_hr_database.db (280 KB)"
+echo "   • Employees: 325 (anonymized)"
+echo "   • Companies: ECGS + ECGS1-4"
+echo "   • Payroll: Nov-Dec 2024"
+echo ""
+echo "═══════════════════════════════════════════════════════"
+echo ""
+echo "🚀 Starting Mido System API Server..."
+echo ""
+echo "   Server URL: http://localhost:8000"
+echo "   Frontend: Open mido_system.html in browser"
+echo ""
+echo "═══════════════════════════════════════════════════════"
+echo ""
+echo "👤 Login Credentials:"
+echo ""
+echo "   ADMINISTRATOR:"
+echo "      Username: admin"
+echo "      Password: admin123"
+echo "      Access: Full system (all 325 employees)"
+echo ""
+echo "   EMPLOYEE:"
+echo "      Username: employee1 to employee10"
+echo "      Password: emp123"
+echo "      Access: Personal reports only"
+echo ""
+echo "═══════════════════════════════════════════════════════"
+echo ""
+echo "🔍 Quick Features:"
+echo ""
+echo "   ADMIN:"
+echo "   • Search Employee by ID → Generate Arabic Payslip"
+echo "   • Payroll Reconciliation (Nov vs Dec 2024)"
+echo "   • View 325 employees across ECGS companies"
+echo "   • Download all reports as PDF"
+echo ""
+echo "   EMPLOYEE:"
+echo "   • View My Arabic Payslip (بيان المرتب الشهري)"
+echo "   • Own data only - secure isolation"
+echo ""
+echo "═══════════════════════════════════════════════════════"
+echo ""
+echo "📄 Report Formats:"
+echo "   ✅ Arabic Payslip - Exact match to uploaded image"
+echo "   ✅ Payroll Reconciliation - Exact match to uploaded image"
+echo "   ✅ All reports: View on web OR Download PDF"
+echo ""
+echo "═══════════════════════════════════════════════════════"
+echo ""
+echo "🎯 Employee Search:"
+echo "   • By ID: EMP0011, EMP0012, etc."
+echo "   • By Name: Employee 1, Employee 2, etc."
+echo "   • Original IDs from Excel preserved in codes"
+echo ""
+echo "═══════════════════════════════════════════════════════"
+echo ""
+echo "▶️  Press Ctrl+C to stop server"
+echo ""
+
+# Check if Python is available
+if ! command -v python3 &> /dev/null; then
+    echo "❌ Error: Python 3 is required"
+    echo "   Please install Python 3 and try again"
+    exit 1
+fi
+
+# Check if database exists
+if [ ! -f "mido_hr_database.db" ]; then
+    echo "❌ Error: Database not found"
+    echo "   Please ensure mido_hr_database.db is in current directory"
+    exit 1
+fi
+
+echo "🚀 Starting server..."
+echo ""
+
+# Start the server
+python3 mido_api_server.py
